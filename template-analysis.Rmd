@@ -2,20 +2,20 @@
 title: "Template-Analysis"
 output:
   html_document:
-   code_folding: show
+   code_folding: hide
    df_print: paged
    toc: yes
    toc_float: no
 ---
  
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, cache = TRUE, warning = FALSE) 
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE, warning = FALSE) 
 
 source(here::here("00_packages.R"))
 ```
 
 ```{r load data}
-metaviz_long <- rio::import(here::here("data", "metaviz_long.rds"))
+metaviz_long <- readRDS(here::here("data", "metaviz_long.rds"))
 ```
 
 # Explore Data for My-Project
@@ -62,7 +62,7 @@ survey_plot <- metaviz_long %>%
 survey_plot
 ```
 
-### Demography
+### Demography {.active}
 ```{r fig.width= 10}
 dem_plot <- metaviz_long %>%
   drop_na(value) %>%
